@@ -15,6 +15,7 @@ public class StudentList {
 		System.out.println();
 		list = new Student[numStudents];
 		for (int i = 0; i < numStudents; i++) {
+			scnr.nextLine();
 			System.out.println();
 			System.out.println("STUDENT " + i + "...");
 			System.out.print("First Name: ");
@@ -42,6 +43,22 @@ public class StudentList {
 	public void bubbleSort() {
 		// Your implementation here
 		// Bubble sort the array called 'list'
+		int n = list.length;
+		Student temp;
+		for (int i = n - 2; i >= 0; i--) {
+			for (int j = 0; j <= i; j++) {
+				int index = 0;
+				while (list[j].getLastName().charAt(index) == 
+						list[j + 1].getLastName().charAt(index))
+					index++;
+				if ((list[j].getLastName().charAt(index) > 
+				list[j + 1].getLastName().charAt(index))) {
+					temp = list[j + 1];
+					list[j + 1] = list[j];
+					list[j] = temp;
+				}
+			}
+		}
 	}
 
 }
